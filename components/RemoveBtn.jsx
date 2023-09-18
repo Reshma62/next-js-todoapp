@@ -5,7 +5,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const RemoveBtn = ({ id }) => {
   const handleDelete = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/todo?id=${id}`, {
+    const res = await fetch(`/api/todo?id=${id}`, {
       method: "DELETE",
     });
     if (res.ok) {

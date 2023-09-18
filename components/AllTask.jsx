@@ -8,7 +8,7 @@ const AllTask = ({ handleEdit }) => {
   useEffect(() => {
     const getTopics = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/todo", {
+        const res = await fetch("/api/todo", {
           cache: "no-store",
         });
 
@@ -57,7 +57,7 @@ const AllTask = ({ handleEdit }) => {
         </button>
       </div>
       <div className="p-4 bg-white rounded-md mt-4">
-        { activeTab === 0 && <AllTaskList task={ data } handleEdit={handleEdit } />}
+        {activeTab === 0 && <AllTaskList task={data} handleEdit={handleEdit} />}
         {activeTab === 1 && <CompletedTask />}
       </div>
     </div>

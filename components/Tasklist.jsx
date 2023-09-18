@@ -10,7 +10,7 @@ const Tasklist = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [taskIdToEdit, setTaskIdToEdit] = useState(null);
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:3000/api/todo", {
+    const res = await fetch("/api/todo", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -34,17 +34,14 @@ const Tasklist = () => {
 
   const handleUpdate = async () => {
     if (isEditing) {
-      const res = await fetch(
-        `http://localhost:3000/api/todo/${taskIdToEdit}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-type": "application/json",
-          },
+      const res = await fetch(`/api/todo/${taskIdToEdit}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
 
-          body: JSON.stringify({ title, description }),
-        }
-      );
+        body: JSON.stringify({ title, description }),
+      });
       if (res.ok) {
         setTitle("");
         setDescription("");
