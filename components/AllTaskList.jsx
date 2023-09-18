@@ -5,7 +5,10 @@ export default function AllTaskList({ task, handleEdit }) {
     <div>
       <h2>All task lists</h2>
       {task.map(({ description, title, _id }) => (
-        <div className="flex justify-between items-center bg-slate-300 py-5 px-4 mb-5">
+        <div
+          key={_id}
+          className="flex justify-between items-center bg-slate-300 py-5 px-4 mb-5"
+        >
           <div>
             <h2 className="text-2xl capitalize">{title}</h2>
             <p>{description}</p>
